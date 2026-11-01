@@ -3,9 +3,7 @@ const { POManager } = require("../pageObjects/POManager");
 const dataset = require("../utils/loginData.json");
 const invalidDataset = JSON.parse(JSON.stringify(require("../utils/invalidLoginData.json"))); 
 
-
-
-test(`Verify user search working and update user status ${dataset.USERNAME}`, async ({ page }) => {
+test(`Verify login is successful with valid credentials ${dataset.USERNAME}`, async ({ page }) => {
     const poManager = new POManager(page);
     const loginPage = poManager.getLoginPage();
     await loginPage.goToLoginPage();
