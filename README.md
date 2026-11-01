@@ -59,44 +59,66 @@ The project includes manual test cases, bug reports, and automated test scenario
 
 1. Run All Tests
 
-* To run all test scenarios:
-
-  `npx playwright test`
-
-* To see the browser while tests execute:
-
-  `npx playwright test --headed`
+* To run all test scenarios: `npx playwright test`
+* To see the browser while tests execute: `npx playwright test --headed`
 
 2. Run Individual Test Files
 
-* Login Tests:
-
-  `npx playwright test tests/loginPage.spec.js`
-
-* Book Tests:
-
-  `npx playwright test tests/bookManagementPage.spec.js`
-
-* Search Book Tests:
-
-  `npx playwright test tests/searchBook.spec.js`
+* Login Tests:  `npx playwright test tests/loginPage.spec.js`
+* Book Tests: `npx playwright test tests/bookManagementPage.spec.js`
+* Search Book Tests: `npx playwright test tests/searchBook.spec.js`
 
 3. Run Individual Files in Headed Mode
 
-* Login Tests:
-
-  `npx playwright test tests/loginPage.spec.js --headed`
-
-* Book Tests:
-
-  `npx playwright test tests/bookManagementPage.spec.js --headed`
-
-* Search Book Tests:
-
-  `npx playwright test tests/searchBook.spec.js --headed`
+* Login Tests: `npx playwright test tests/loginPage.spec.js --headed`
+* Book Tests: `npx playwright test tests/bookManagementPage.spec.js --headed`
+* Search Book Tests: `npx playwright test tests/searchBook.spec.js --headed`
 
 4. Debug Tests
-
 To debug a specific test file, use:
-
 `npx playwright test tests/<spec-file-name> --debug`
+
+# Project Structure
+
+```text
+project/
+│
+├── pageObjects/
+│   ├── POMManager.js
+│   ├── bookManagementPage.js
+│   ├── loginPage.js
+│   └── searchBook.js
+│
+├── tests/
+│   ├── bookManagementPage.spec.js
+│   ├── loginPage.spec.js
+│   └── searchBook.spec.js
+│
+├── utils/
+│   ├── bookData.json
+│   ├── invalidLoginData.json
+│   └── loginData.json
+│
+├── .env
+├── .gitignore
+├── Bug Report.pdf
+├── Test Cases.xlsx
+├── automation_test_scripts.pdf
+├── bug.mp4
+├── bug2.png
+├── package.json
+├── package-lock.json
+├── playwright.config.js
+└── README.md
+```
+
+## Test Documentation & Bug Reports
+
+The repository also includes manual testing documentation and supporting bug evidence.
+
+- **Test Cases.xlsx:** Contains manually designed test cases.
+- **Bug Report.pdf:** Documents identified defects.
+- **automation_test_scripts.pdf:** Contains automation test scripts.
+- **bug.mp4 / bug2.png:** Video and screenshot evidence of identified bugs.
+
+
