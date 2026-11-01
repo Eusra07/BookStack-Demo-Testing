@@ -20,6 +20,13 @@ class BookPage{
         this.deleteHeading = page.getByRole('heading', { name: 'Delete Book' });
         this.confirmBtn = page.getByText('Confirm', { exact: true });
         this.deleteSuccessful = page.getByText('Book successfully deleted');
+
+        this.requiredMessage = page.getByText('The name field is required.', { exact: true });
+
+        this.editIcon = page.getByText('Edit', { exact: true });
+        this.editHeading = page.getByRole('heading', { name: 'Edit Book' });
+        this.updateSuccessful = page.getByText('Book successfully updated');
+        this.bookNameBox = page.locator('h1.break-text');
         
     }
 
@@ -32,21 +39,45 @@ class BookPage{
     }    
 
     async createBook(name, description){
-
         await this.createNewBookBtn.click();
         await this.page.waitForLoadState('domcontentloaded');
         await expect(this.bookCreateHeading).toBeVisible();
 
-        await this.bookName.click();
-        await this.bookName.fill(name);
+        if (name === '') {
 
-        await this.decriptionBox.click();
-        await this.decriptionBox.fill(description);
+            await this.saveBtn.click();
+            await expect(this.requiredMessage).toBeVisible();
+            return false;
+
+        } else {
+
+            await this.bookName.click();
+            await this.bookName.fill(name);
+
+            await this.decriptionBox.click();
+            await this.decriptionBox.fill(description);
+            
+            await this.saveBtn.click();
+            await expect(this.successMessage).toBeVisible({
+            timeout: 10000
+            });
+            return true;
+        }
+    }
+
+    async editBook(name){
+
+        await this.editIcon.click();
+        await this.page.waitForLoadState('domcontentloaded');
+        await expect(this.editHeading).toBeVisible();
         
+        this.updatedBook = name + ' edited';
+        await this.bookName.click();
+        await this.bookName.fill(this.updatedBook);
         await this.saveBtn.click();
-        await expect(this.successMessage).toBeVisible({
-        timeout: 10000
-        });
+
+        await expect(this.updateSuccessful).toBeVisible();
+        await expect(this.bookNameBox).toHaveText(this.updatedBook);
 
     }
 
