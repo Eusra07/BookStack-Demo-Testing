@@ -1,5 +1,6 @@
 const { LoginPage } = require("./loginPage");
 const { BookPage } = require("./bookManagementPage");
+const { SearchPage } = require("./searchBook");
 
 class POManager{
 
@@ -7,6 +8,7 @@ class POManager{
         this.page = page;
         this.loginPage = new LoginPage(this.page);
         this.bookPage = new BookPage(this.page);
+        this.searchPage = new SearchPage(this.page);
     }
 
     getLoginPage(){
@@ -15,6 +17,10 @@ class POManager{
 
     getBookPage(){
         return this.bookPage;
+    }
+
+    getSearchPage(){
+        return this.searchPage;
     }
     
 }
