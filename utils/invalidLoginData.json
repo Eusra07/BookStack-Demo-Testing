@@ -1,0 +1,23 @@
+[
+    {
+        "USERNAME":"admin@example.com",
+        "PASSWORD":""
+    },
+    {
+        "USERNAME":"",
+        "PASSWORD":"password"
+    },
+    {
+        "USERNAME":"",
+        "PASSWORD":""
+    },
+    {
+        "USERNAME":"admin@example.com",
+        "PASSWORD":"wrong"
+    },
+    {
+        "USERNAME":"wrong@example.com",
+        "PASSWORD":"password"
+    }
+
+]
